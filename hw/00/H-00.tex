@@ -121,15 +121,13 @@ the tree.
 Use the definition of big-O notation to prove that $f(x)=n^2 + 3n -2$ is
 $O(n^2)$.
 
-\paragraph{Answer}
+\paragraph{Big-O notation is defined as: $f(x) \leq C*\abs(G(x)).$ If $f(x)=n^2 + 3n - 2$ is $O(n^2)$, for all $n \geq k$, there exists some constant C such that $n^2 + 3n - 2 \leq C*n^2$. Suppose $k = 1$, so that $n \geq 1.$ Since $n$ is greater than or equal to 1, $n$ can't be negative and $n^2 \geq n$. By the transitive property we can show that $n^2 \geq n \geq 1$. This relation holds true for any multiplication of a constant -- like the middle 3 term ($3n^2 \geq 3n \geq 3$). It's also true that $-2n^2 \leq -2n \leq -2.$  }
 
-\todo{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{\todo{}}
 \nextprob{If/Then Statements}
-Consider the following statement: If $a$ and $b$ are both even numbers, then $ab$ is
-an even number.
+Consider the following statement: If $a$ and $b$ are both even numbers, then $ab$ is an even number.
 \begin{enumerate}
     \item What is the definition of an odd number?
 
