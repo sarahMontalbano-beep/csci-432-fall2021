@@ -1,4 +1,4 @@
-# CSCI 432: Advanced Algorithm Topicss, Fall 2021 #
+# CSCI 432: Advanced Algorithm Topics, Fall 2021 #
 
 This repository is for class materials for CSCI 432 in Fall 2021, taught by Prof. Fasy.
 
@@ -9,7 +9,7 @@ probabilistic algorithms, advanced graph problems and theory, distributed and
 parallel programming.
 
 From the Instructor: This course is NOT a programming class, and is not
-structured like the 132 and 232 courses the precede it.  In this course, we will
+structured like the 132 and 232 courses that precede it.  In this course, we will
 do many proofs (especially using induction), and will be writing pseudo-code, not
 code.
 
@@ -22,6 +22,23 @@ sorting and searching algorithms, big-Oh notation,
 basic recurrence relations,
 heaps, queues, lists, hash tables,
 proof by induction and by contradiction, and discrete probability.
+
+
+## Land Acknowledgement
+
+Living in Montana, we are on the ancestral lands of American Indians, including
+the 12 tribal nations that call Montana home today: A’aninin (Gros Ventre),
+Amskapi/Piikani (Blackfeet), Annishinabe (Chippewa/Ojibway), Annishinabe/Métis
+(Little Shell Chippewa), Apsáalooke (Crow), Ktunaxa/Ksanka (Kootenai), Lakota,
+Dakota (Sioux), Nakoda (Assiniboine), Ne-i-yah-wahk (Plains Cree), Qíispé (Pend
+d’Oreille), Seliš (Salish), and Tsétsêhéstâhese/So’taahe (Northern Cheyenne).
+We honor and respect these tribal nations as we live, work, learn, and play in
+this state.
+
+To learn more about Montana Indians, I suggest starting with the following
+pamphlet:
+[Essential Understandings Regarding Montana
+Indian](http://opi.mt.gov/Portals/182/Page%20Files/Indian%20Education/Indian%20Education%20101/essentialunderstandings.pdf)
 
 ## Course Outcomes and Objectives
 
@@ -42,7 +59,11 @@ algorithms. In this course, students will:
 ## When and Where?
 
 When? MWF 15:10-16:00
-Where? Roberts 208 
+Where? Roberts 218 
+
+Note: if necessary (e.g., if the instructor must quarantine or self-isolte),
+class will be held via Zoom. If so, a link will be sent via email and via the
+class discussion board.
 
 ## How do I contact you?
 
@@ -54,7 +75,7 @@ Office Phone: x4804
 
 Office hours: 
 
-* Prof. Fasy: TBA, and by appointment. Via Zoom.
+* Prof. Fasy: Monday 9:30-10:30, Wednesday after class, and by appointment.
 * TA: TBA.
 
 Note: These office hours are times that we are available to meet, and will be
@@ -69,8 +90,9 @@ The folders in this repository contain all materials for this class.
 - hw: homework assignments, as well as a LaTex template for your submissions. 
 - lec_notes: Copies of lecture notes and board photos. 
 - slides: Source for my Beamer slides (which only happens occasionally).
+
+- misc.md: List of Miscellaneous assignments (see grading)
 - README.md: the course syllabus
-- misc.md: List of Miscelaneous assignments (see grading)
 
 The schedule is at the bottom of this Markdown file.  If you want to learn more
 about Markdown, check out [this tutorial](https://www.markdowntutorial.com/).
@@ -83,7 +105,7 @@ materials for this class.  See the resources section below for forking direction
 
 To clone this repo:
 ```
-$ git clone https://bitbucket.org/msu-cs/csci-432-fa19.git
+$ git clone https://github.com/msu/csci-432-fall2021
 ```
 
 ## Grading
@@ -97,10 +119,10 @@ Your grade for this class will be determined by:
   assignments will not be accepted.  The lowest two homework grades will be
   dropped.  The submission should be typeset in LaTex, and submitted as a PDF
   both in D2L and Gradescope. Each problem should be started on a fresh page.
-* The [miscelaneous assignments](misc.md) will be worth up to 10 points each,
+* The [miscellaneous assignments](misc.md) will be worth up to 10 points each,
   and the total sum will count as a HW grade (max grade: 100).
 * Project: Groups will be assigned.  You will be creating a video presentation
-  of a "modern" algorithm.
+  of a "modern" algorithm.  More details to come.
 * Exams: We will have three exams in this course. Each exam will be 10% of the
   grade, with the best exam counting an additional 5%.
 
@@ -128,12 +150,12 @@ forbidden. Note:
 Except for note taking and group work requiring a computer, please keep
 electronic devices off during class, as they can be distractions to other
 students. Disruptions to the class will result in being asked to leave the
-lecture, and one half-point will be deducted from the attendance grade.
+lecture, and one half-point will be deducted from your final course grade.
 
 ### Withdrawing
 
-After 25 October 2019, I will only support requests to withdraw from this course
-with a ``W" grade if extraordinary personal circumstances exist.  If you are
+After 25 October 2020, I will only support requests to withdraw from this course
+with a "W" grade if extraordinary personal circumstances exist.  If you are
 considering withdrawing from this class, discussing this with me as early as
 possible is advised.  Since this class involves a project, the decision to
 withdraw must also be discussed with your group.
@@ -162,6 +184,28 @@ If there are aspects of the design, instruction, and/or experiences within this
 course that result in barriers to your inclusion or accurate assessment of
 achievement, please notify the instructor as soon as possible and/or contact
 Disability Services or the Office of Institutional Equity.
+
+### Use of Materials
+
+This syllabus, course lectures and presentations, and any course materials
+provided throughout this term are protected by U.S. copyright laws.  Students
+enrolled in the course may use them for their own research and educational
+purposes.  However, reproducing, selling or otherwise distributing these
+materials without written permission of the copyright owner is expressly
+prohibited, including providing materials (or solutions) to commercial
+platforms such as Chegg or CourseHero.  Doing so may constitute a violation of
+U.S. copyright law as well as MSU’s Code of Student Conduct.
+
+### Special Remarks and Policies for the COVID-19 Pandemic
+
+Masks are required in the classroom, at least through 1 October 2021.  The
+instructor requests that you wear masks as long as Gallatin county is in a "high
+transmission" status. If you need to miss class due to COVID-19 infection or
+quarantine (or any other reason), please communicate with the instructor as soon
+as possible in order to coordinate a plan for making up the missed classwork.
+As a reminder, attendance is required.  If the instructor is unable to make it
+to class, either a substitute will be found for those lectures or the class will
+be held via Zoom.
 
 ## MSU Policies
 
@@ -198,7 +242,7 @@ Conduct.  This includes the following academic expectations:
 - make and keep appointments when necessary to meet with the instructor. 
 
 
-## MSU Drug and Alcohol Policies
+### MSU Drug and Alcohol Policies
 
 Per the Code of Conduct for students, no student may come to class under the
 influence of drugs or alcohol, as that would not be`Fostering a healthy, safe
@@ -206,6 +250,7 @@ and productive campus and community.`  See [Alcohol and Drug Policies
 Website](http://www.montana.edu/deanofstudents/alcoholanddrugs.html) for more
 information.  In particular, note:
 
+```
 As a federally-funded institution, we must adhere to all federal laws when it
 comes to alcohol and drug use or distribution. This holds true for marijuana as
 well. Using or distributing marijuana on or off campus is a violation of our
@@ -214,7 +259,7 @@ which marijuana is legal or has been decriminalized.
 
 As noted, the University's alcohol and drug policies apply off campus. Using
 drugs and/or alcohol and returning to your residence hall in a disruptive
-fashion- either via odor, noise, destruction, etc- can lead to residence life
+fashion--either via odor, noise, destruction, etc--can lead to residence life
 policy and alcohol or drug policy violations. Remember, not everyone wants to
 hear or smell you.
 ```
@@ -234,35 +279,33 @@ hear or smell you.
 
 ### Course Textbook
 
-* [Algorithms by Jeff Erickson](https://jeffe.cs.illinois.edu/teaching/algorithms/)
-
-## Schedule
-
-Each week, we assign:
-
-- Textbook Reading: should be skimmed before class, read after class
-- Additional Readings: additional resources that your classmates have found
-  helpful. If you need more resources, ask!
-
-### Course Textbook(s) 
-
-* Introduction to Algorithms, Third Edition} by Cormen, Leiserson, Rivest, and
+* (Required) [Algorithms by Jeff Erickson](https://jeffe.cs.illinois.edu/teaching/algorithms/)
+* (Suggested) Introduction to Algorithms, Third Edition} by Cormen, Leiserson, Rivest, and
   Stein (CLRS). 
-* _Elements of Programming Interviews_ (EPI) by Azis, Lee, and~Prakash.  Please
-  bring this book to class on Fridays.
 
 ## Schedule
 
 Each week, we assign:
-- CLRS reading: should be skimmed before class, read after class
-- EPI reading: read introductions of chapters and select problems
-- Additional readings: skim before class, read after class
+
+- Textbook Reading:  These are readings from Erickson's Algorithms, Please skim
+  before class, and fully read after class.
+- Additional Readings: additional resources that your classmates have found
+  helpful. Skim/read as you find appropriate. If you need more resources, ask!
+
+## Schedule
 
 ### Week 1 (25,27 August)
-- Topics: Intro to Analysis of Algorithms; Induction
+- Topics: Intro to Analysis of Algorithms; Induction; Asymptotic Notation 
 - Reading: Chapter 0 
 - Additional Reading: [Induction Review](https://www.cs.montana.edu/brittany/teaching/algorithms/15_fall/docs/induction.pdf)
 
+### Week 17 (Finals Week)
+- We meet Wednesday, 15 December, 14:00-15:50.
+- See [Finals Week Schedule](https://www.montana.edu/registrar/Schedules.html)
+  for university policies.
 --- 
 
-This syllabus was created, using wording from previous courses taught by myself, as well as my colleagues.  Thanks all!
+This syllabus was created, using wording from previous courses taught by myself,
+as well as my colleagues.  Thanks all!  If you are teaching an algorithms or
+related course and wish to use any of the materials, you have permission to do
+so, as long as solutions to HW questions are not posted online.
