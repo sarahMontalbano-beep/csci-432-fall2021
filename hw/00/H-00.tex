@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{../fasy-hw}
 \usepackage{hyperref}
+\usepackage{algpseudocode}
 
 %% UPDATE these variables:
 \renewcommand{\hwnum}{0}
@@ -143,7 +144,7 @@ $O(n^2)$.
 \item \emph{Big-O notation is defined as: $f(x) \leq C\cdot{G(x)}$}
 \item { If $f(x)=n^2 + 3n - 2$ is $O(n^2)$, for all $n \geq k$, there exists some constant C such that $n^2 + 3n - 2 \leq C\cdot{n^2}$.}
 \item{Suppose $k = 1$, so that $n \geq 1.$ Since $n$ is greater than or equal to 1, $n$ can't be negative and therefore $n^2 \geq n$.}
-\item{By the transitive property, $n^2 \geq n \geq 1$. This relation holds true for any multiplication of a constant, like the middle term ($3n^2 \geq 3n \geq 3$. It's also true that $-2n^2 \leq -2n \leq -2.$}
+\item{By the transitive property, $n^2 \geq n \geq 1$. This relation holds true for any multiplication of a constant, like the middle term ($3n^2 \geq 3n \geq 3$). It's also true that $-2n^2 \leq -2n \leq -2.$}
 \item{By the previous step, the following inequality is true. $n^2 + 3n - 2 \leq n^2 + 3n^2 - 2n^2.$ Simplifying the right-hand size yields $n^2 + 3n - 2 \leq 2n^2.$}
 \item{In conclusion, there exists some constant C such that $C$ ($C = 2$) for all $n \geq = 1$, proving that $f(x)=n^2 + 3n -2$ is $O(n^2)$.}
 \end{itemize}
@@ -157,47 +158,60 @@ an even number.
 \begin{enumerate}
     \item What is the definition of an odd number?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{An odd number is an integer $n$ such that $n = 2k + 1$, where $k$ is some integer.}
 
     \item What is the definition of an even number?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{An even number is an integer $n$ such that $n = 2k$, where $k$ is some integer.}
 
     \item What is the contrapositive of this statement?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{A contrapositive is, "If not q, then not p." The contrapositive of "If $a$ and $b$ are both even numbers, then $ab$ is an even number" would be, "If either $a$ or $b$ is not an even number, then $ab$ is not an even number."}
 
     \item What is the converse of this statement?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{A converse is, "If q, then p." The converse is, "If $ab$ is an even number, then $a$ and $b$ are both even numbers."}
 
     \item Prove this statement.
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{Both $a$ and $b$ are even numbers, which by definition means $a = 2m$ and $b = 2n$, where $m$ and $n$ are some integers. Substituting the definitions of $a$ and $b$, $ab = (2m)(2n) = 4mn$. Since 4 is divisible by 2 and therefore an even number, we can split into $ab = 2(2mn)$. Let $k = 2mn$. In conclusion, $ab = 2k$, the definition of an even number.}
 
 \end{enumerate}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{None}
 \nextprob{Sorting}
 Consider your favorite sorting algorithm.
 \begin{enumerate}
     \item \emph{What} is the problem that this algorithm solves?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{(See URL for my citation). The collator was invented in 1938, and according to Donald Knuth's The Art of Computer Programming Vol 3, "with its two feeding stations, it could merge two sorted decks of cards into one, in only one pass." Von Neumann designed mergesort, applying the logic of physical card-sorting machines to burgeoning computer science. Mergesort has a faster worst-case runtime than most sorting algorithms, works well on large and small datasets, and is especially suitable for linked list problems. Mergesort requires additional memory space, so is not suitable when memory is constrained.}
+\url{https://hsm.stackexchange.com/questions/12549/how-did-von-neumann-come-up-with-his-merge-sort-algorithm}
 
     \item \emph{How} does it work? (Hint: give pseudocode!)
 
         \paragraph{Answer}
-        \todo{}
+        \begin{algorithmic}
+	\Function{MergeSort}{list k} 
+	\If {length of $k \leq 1$} \Comment{The base case; a list of length 0 or 1 is trivially sorted.}
+	    \State \Return $k$
+	\EndIf
+	\State var left := empty list
+	\State var right := empty list
+	\For {each $x$ with index $i$ in $k$}
+	\If {$i <$ (length of $k$)/2}
+	\State add x to left
+	\Else
+	\State add x to right
+	\EndIf
+	\EndFor
+	\State left := MergeSort(left)
+	\State right := MergeSort(right)
+	\State \Return merge(left,right)
+	\EndFunction
+	\end{algorithmic}
 
     \item \emph{How fast} does it work?  Give the asymptotic running time.
         Note: typically, you will give this as the worst-case running time.
