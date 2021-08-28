@@ -187,7 +187,7 @@ Consider your favorite sorting algorithm.
 \begin{enumerate}
     \item \emph{What} is the problem that this algorithm solves?
 
-        \paragraph{Answer}{(See URL for my citation). The collator was invented in 1938, and according to Donald Knuth's The Art of Computer Programming Vol 3, "with its two feeding stations, it could merge two sorted decks of cards into one, in only one pass." Von Neumann designed mergesort, applying the logic of physical card-sorting machines to burgeoning computer science. Mergesort has a faster worst-case runtime than most sorting algorithms, works well on large and small datasets, and is especially suitable for linked list problems. Mergesort requires additional memory space, so is not suitable when memory is constrained.}
+        \paragraph{Answer}{(See URL for my citation). The collator was invented in 1938, and according to Donald Knuth's The Art of Computer Programming Vol 3, "with its two feeding stations, it could merge two sorted decks of cards into one, in only one pass." Von Neumann designed mergesort, applying the logic of physical card-sorting machines to burgeoning computer science. Mergesort takes a list input and outputs a sorted list. Mergesort has a faster worst-case runtime than most sorting algorithms, works well on large and small datasets, and is especially suitable for linked list problems. Mergesort requires additional memory space, so is not suitable when memory is constrained.}
 \url{https://hsm.stackexchange.com/questions/12549/how-did-von-neumann-come-up-with-his-merge-sort-algorithm}
 
     \item \emph{How} does it work? (Hint: give pseudocode!)
@@ -211,6 +211,28 @@ Consider your favorite sorting algorithm.
 	\State right := MergeSort(right)
 	\State \Return merge(left,right)
 	\EndFunction
+	\\
+	\Function{merge}{left,right}
+	\State var result := empty list
+	\While {left is not empty and right is not empty}
+	\If {first(left) $\leq$ first(right)}
+	\State{append first(left) to result}
+	\State{left := rest(left)}
+	\Else
+	\State append first(right) to result
+	\State right := rest(right)
+	\EndIf
+	\EndWhile
+	\While {left is not empty}
+	\State{append first(left) to result}
+	\State{left := rest(left)}
+	\EndWhile
+	\While{right is not empty}
+	\State{append first(right) to result}
+	\State{right := rest(right)}
+	\EndWhile
+	\State \Return result
+	\EndFunction 
 	\end{algorithmic}
 
     \item \emph{How fast} does it work?  Give the asymptotic running time.
@@ -219,8 +241,7 @@ Consider your favorite sorting algorithm.
         give both the worst-case running time and the expected running time.  No
         justification of the running time is needed.
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{Mergesort's worst-case performance is $O(n\log{}n)$}
 
     \item \emph{Why} does this work? Typically, this will be given as a loop
         invariant proof.  For this HW, explain why it works informally, in your
