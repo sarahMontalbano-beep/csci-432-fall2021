@@ -2,6 +2,7 @@
 \usepackage{../fasy-hw}
 \usepackage{hyperref}
 \usepackage{algpseudocode}
+\usepackage{graphicx}
 
 %% UPDATE these variables:
 \renewcommand{\hwnum}{0}
@@ -80,6 +81,11 @@ Answer the following questions:
 Make a post in the class discussion board. No answer needs to be written here.
 But, for bonus points, include a screenshot of your post.
 
+\begin{figure}
+  \includegraphics[width=\linewidth]{discussion_board_intro_screenshot.png}
+  \caption{My discussion board post on 8-30-2021.}
+  \label{fig:screenshot}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{None}
@@ -121,7 +127,7 @@ the tree.
 \item \emph{Base Case:}{ $n = 1$. For $n = 1$, this represents an isolated vertice, and the number of edges must be $n - 1 = 0$.}
 \item \emph{Inductive Assumption:}{ Let n = k and assume that the claim is true for k. Any tree with $k$ vertices has $k-1$ edges.}
 \item \emph{Inductive Step:}{ For $k \geq 2$. Assume the theorem holds for $k-1$ vertices. Let $T$ be a tree with $k$ vertices, and let $e$ be an edge with end vertices $u$ and $v$. By the definition of a tree, the only path between $u$ and $v$ is $e$. Consider deleting $e$, which results in two disconnected components, $T_1$ and $T_2$, both of which are still trees. The number of total vertices $k$ is the sum of the vertices in $T_1$ and $T_2$, call them $k_1$ and $k_2$. $k_1 + k_2 = k$. Both $k_1$ and $k_2$ must be strictly smaller than $k$.} 
-\item \emph{Conclusion:}{ By the induction hypothesis, the number of edges in $T_1$ and $T_2$ are $k_1 - 1$ and $k_2 - 1$. The number of edges in T must be $k_1 - 1$ + $k_2 1 1$ + $1$ = $n_1 + n_2$ - 1 = $n - 1$.}
+\item \emph{Conclusion:}{ By the induction hypothesis, the number of edges in $T_1$ and $T_2$ are $k_1 - 1$ and $k_2 - 1$. The number of edges in T must be $k_1 - 1$ + $k_2 - 1$ + $1$ = $n_1 + n_2$ - 1 = $n - 1$.}
 \end{itemize}
 \end{proof}
 
@@ -145,10 +151,12 @@ $O(n^2)$.
 \item { If $f(x)=n^2 + 3n - 2$ is $O(n^2)$, for all $n \geq k$, there exists some constant C such that $n^2 + 3n - 2 \leq C\cdot{n^2}$.}
 \item{Suppose $k = 1$, so that $n \geq 1.$ Since $n$ is greater than or equal to 1, $n$ can't be negative and therefore $n^2 \geq n$.}
 \item{By the transitive property, $n^2 \geq n \geq 1$. This relation holds true for any multiplication of a constant, like the middle term ($3n^2 \geq 3n \geq 3$). It's also true that $-2n^2 \leq -2n \leq -2.$}
-\item{By the previous step, the following inequality is true. $n^2 + 3n - 2 \leq n^2 + 3n^2 - 2n^2.$ Simplifying the right-hand size yields $n^2 + 3n - 2 \leq 2n^2.$}
+\item{By the previous step, the following inequality is true. $n^2 + 3n - 2 \leq n^2 + 3n^2 - 2n^2.$ Simplifying the right side yields $n^2 + 3n - 2 \leq 2n^2.$}
 \item{In conclusion, there exists some constant C such that $C$ ($C = 2$) for all $n \geq = 1$, proving that $f(x)=n^2 + 3n -2$ is $O(n^2)$.}
 \end{itemize}
 \end{proof}
+
+I consulted \url{https://web.mit.edu/16.070/www/lecture/big_o.pdf} for the mathematical definition of Big-O notation. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{None}
@@ -166,7 +174,7 @@ an even number.
 
     \item What is the contrapositive of this statement?
 
-        \paragraph{Answer}{A contrapositive is, "If not q, then not p." The contrapositive of "If $a$ and $b$ are both even numbers, then $ab$ is an even number" would be, "If either $a$ or $b$ is not an even number, then $ab$ is not an even number."}
+        \paragraph{Answer}{A contrapositive is, "If not q, then not p." The contrapositive of "If $a$ and $b$ are both even numbers, then $ab$ is an even number" would be, "If either $a$ or $b$ is \textbf{not} an even number, then $ab$ is \textbf{not} an even number."}
 
     \item What is the converse of this statement?
 
@@ -174,7 +182,7 @@ an even number.
 
     \item Prove this statement.
 
-        \paragraph{Answer}{Both $a$ and $b$ are even numbers, which by definition means $a = 2m$ and $b = 2n$, where $m$ and $n$ are some integers. Substituting the definitions of $a$ and $b$, $ab = (2m)(2n) = 4mn$. Since 4 is divisible by 2 and therefore an even number, we can split into $ab = 2(2mn)$. Let $k = 2mn$. In conclusion, $ab = 2k$, the definition of an even number.}
+        \paragraph{Answer}{Both $a$ and $b$ are even numbers, which by definition means $a = 2m$ and $b = 2n$, where $m$ and $n$ are some integers. Substituting the definitions of $a$ and $b$, $ab = (2m)(2n) = 4mn$. Since 4 is divisible by 2 and therefore itself even number, we can split into $ab = 2(2mn)$. Let $k = 2mn$. In conclusion, $ab = 2k$, the definition of an even number.}
 
 \end{enumerate}
 
@@ -187,8 +195,8 @@ Consider your favorite sorting algorithm.
 \begin{enumerate}
     \item \emph{What} is the problem that this algorithm solves?
 
-        \paragraph{Answer}{(See URL for my citation). The collator was invented in 1938, and according to Donald Knuth's The Art of Computer Programming Vol 3, "with its two feeding stations, it could merge two sorted decks of cards into one, in only one pass." Von Neumann designed mergesort, applying the logic of physical card-sorting machines to burgeoning computer science. Mergesort takes a list input and outputs a sorted list. Mergesort has a faster worst-case runtime than most sorting algorithms, works well on large and small datasets, and is especially suitable for linked list problems. Mergesort requires additional memory space, so is not suitable when memory is constrained.}
-\url{https://hsm.stackexchange.com/questions/12549/how-did-von-neumann-come-up-with-his-merge-sort-algorithm}
+        \paragraph{Answer}{The collator was invented in 1938, and according to Donald Knuth's The Art of Computer Programming Vol 3, "with its two feeding stations, it could merge two sorted decks of cards into one, in only one pass." Von Neumann designed mergesort, applying the logic of physical card-sorting machines to burgeoning computer science. Mergesort takes a list input and outputs a sorted list. Mergesort has a faster worst-case runtime than most sorting algorithms, works well on large and small datasets, and is especially suitable for linked list problems. Mergesort requires additional memory space, so is not suitable when memory is constrained.}
+\\Citation (there's surprisingly little on how mergesort was developed): \url{https://hsm.stackexchange.com/questions/12549/how-did-von-neumann-come-up-with-his-merge-sort-algorithm}
 
     \item \emph{How} does it work? (Hint: give pseudocode!)
 
@@ -198,9 +206,9 @@ Consider your favorite sorting algorithm.
 	\If {length of $k \leq 1$} \Comment{The base case; a list of length 0 or 1 is trivially sorted.}
 	    \State \Return $k$
 	\EndIf
-	\State var left := empty list
-	\State var right := empty list
-	\For {each $x$ with index $i$ in $k$}
+	\State left := empty list
+	\State right := empty list
+	\For {each element of $k$ indexed by $i$}
 	\If {$i <$ (length of $k$)/2}
 	\State add x to left
 	\Else
@@ -214,7 +222,7 @@ Consider your favorite sorting algorithm.
 	\\
 	\Function{merge}{left,right}
 	\State var result := empty list
-	\While {left is not empty and right is not empty}
+	\While {length(left) $>$ 0 and length(right) $>$ 0}
 	\If {first(left) $\leq$ first(right)}
 	\State{append first(left) to result}
 	\State{left := rest(left)}
@@ -235,20 +243,22 @@ Consider your favorite sorting algorithm.
 	\EndFunction 
 	\end{algorithmic}
 
+Citation: \url{https://www.cs.umd.edu/users/meesh/cmsc351/mount/lectures/lect6-divide-conquer-mergesort.pdf}
+
     \item \emph{How fast} does it work?  Give the asymptotic running time.
         Note: typically, you will give this as the worst-case running time.
         However, if you chose quicksort or another randomized algorithm, please
         give both the worst-case running time and the expected running time.  No
         justification of the running time is needed.
 
-        \paragraph{Answer}{Mergesort's worst-case performance is $O(n\log{}n)$}
+        \paragraph{Answer}{Mergesort's worst-case performance is $O(n\log{}n)$, which happens to match its best and average-case performance runtimes.}
 
     \item \emph{Why} does this work? Typically, this will be given as a loop
         invariant proof.  For this HW, explain why it works informally, in your
         own words.
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{The main function (that breaks down the original list $k$ into the trivially sorted lists of length 1) is correct so long as it distributes the lists of length 1 into different memory and doesn't overwrite. The function that merges and sorts the trivially sorted lists is correct because the nonempty parts of the "result" list always contains the smallest elements of "left" and "right" lists in sorted order. The smallest remaining elements are always at the start of the "left" and "right" lists. So when the algorithm pulls the starting elements of the "left" and "right" lists, it's always taking the smallest elements and sorting them. At the end of copying, the whole list is completely sorted.}
+\\Citation: I was curious what a loop invariant would look like for mergesort, so here are some references. It's very above my head for now, but helpful to think harder about merge: \url{http://web.stanford.edu/class/archive/cs/cs161/cs161.1176/Sections/161-section-1.pdf}, \url{https://www.cs.mcgill.ca/~dprecup/courses/IntroCS/Lectures/comp250-lecture16.pdf}.
 
 \end{enumerate}
 
