@@ -28,7 +28,7 @@ proof by induction and by contradiction, and discrete probability.
 
 Living in Montana, we are on the ancestral lands of American Indians, including
 the 12 tribal nations that call Montana home today: A’aninin (Gros Ventre),
-Amskapi/Piikani (Blackfeet), Annishinabe (Chippewa/Ojibway), Annishinabe/Métis
+Amskapi/Piikani (Blackfeet), Anishinaabe (Chippewa/Ojibway), Anishinaabe/Métis
 (Little Shell Chippewa), Apsáalooke (Crow), Ktunaxa/Ksanka (Kootenai), Lakota,
 Dakota (Sioux), Nakoda (Assiniboine), Ne-i-yah-wahk (Plains Cree), Qíispé (Pend
 d’Oreille), Seliš (Salish), and Tsétsêhéstâhese/So’taahe (Northern Cheyenne).
