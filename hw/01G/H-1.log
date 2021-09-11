@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.26)  11 SEP 2021 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.26)  11 SEP 2021 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -324,36 +324,36 @@ Overfull \hbox (18.06752pt too wide) in paragraph at lines 123--123
 
 [5
 
-]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 140--140
+] [6]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 186--186
  | [] 
  []
 
-[6
+[7
 
-] [7]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 178--178
- | [] 
- []
-
-[8
-
-]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 192--192
+] [8]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 224--224
  | [] 
  []
 
 [9
 
+]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 239--239
+ | [] 
+ []
+
+[10
+
 ] (./H-1.aux) ) 
 Here is how much of TeX's memory you used:
  5084 strings out of 478542
  74840 string characters out of 5854402
- 386738 words of memory out of 5000000
+ 388747 words of memory out of 5000000
  22970 multiletter control sequences out of 15000+600000
  411589 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,7n,93p,635b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,7n,93p,716b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts
 1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:
 /texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texliv
@@ -371,10 +371,10 @@ public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm10
 00.pfb>
-Output written on H-1.pdf (9 pages, 198151 bytes).
+Output written on H-1.pdf (10 pages, 203093 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

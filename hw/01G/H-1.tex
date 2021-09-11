@@ -132,8 +132,54 @@ closed form, use induction to prove that it is correct.  For the asymptotic
 form, use the definition of big-Theta to justify.
 
 \paragraph{Answer}
-\todo{}
+\begin{proof}
+Claim: The closed form of $$T(n) = \begin{cases}
+            1        & n=1\\
+            T(n-1)+1 & n>1.
+         \end{cases}
+$$ is $T(n) = n$ for all $n > 1$. 
 
+Base Case: $n = 1$. The value for $n = 1$ is given as 1. Thus, the claim that $T(n) = n$ holds for $T(1) = 1$. 
+
+Inductive Assumption: Assume that for all $n \geq 1$, $T(k) = T(k-1) + 1$ for all $k \leq n$.
+
+Inductive step: Let $m$ = $k - 1$. We assume that the inductive assumption holds for $T(k + 1)$. Thus: 
+$T(k) = T(k-1) + 1$
+
+$T(k + 1) = T(k - 1 - 1) + 1  + 1 = T(k - 2) + 2$
+
+The general formula appears to be $T(k) = T(k - m) + m.$
+
+Substituting $k-1$ for $m$: $T(k) = T(k - (k - 1)) + (k - 1).$
+
+Simplify: $T(k) = T(k - k + 1) + k - 1.$
+
+Cancel out the $k$: $T(k) = T(1) + k - 1.$
+
+We know $T(1) = 1$ from the base case, and so we can substitute: $T(k) = 1 + k - 1$.
+
+The 1s cancel: $T(k) = k$. 
+
+Since $k = n$, $T(n) = n$.
+\end{proof}
+
+\begin{proof}
+The asymptotic form of $$T(n) = \begin{cases}
+            1        & n=1\\
+            T(n-1)+1 & n>1.
+         \end{cases}
+$$ is $\Theta(n)$. 
+
+The definition of $\Theta(n)$ is as follows: $T(n)$ is $\Theta(n) \Leftrightarrow \exists  n \in \mathbb{N}$ and $a, b \in \mathbb{R} s.t. \forall n \geq N: bn \leq T(n) \leq an.$ 
+
+Claim: There exists an $N, a, b$ s.t. $T(n)$ satisfies $\Theta(n)$.
+
+Proof: Let $a = 1$, $b = 1$, and $N = 1$. Let $n \geq N$. 
+
+Then $bn = n \leq n.$ In addition, $n \leq an = n$. 
+
+Therefore,  we have $\forall n \geq N, n \leq n \leq n$, which gives us that $T(n)$ is $\Theta(n)$
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{\todo{}}
@@ -149,7 +195,7 @@ Let $T \colon \N \to N$ be defined by $T(1)=1$ and, for $n>1$,
     \item $T(n) = 2 T(n/2) + n \log{n}$
         \paragraph{Answer}{We use Master's theorem as defined below and find the case that matches. $a$ = 2, $b$ = 2, ${\log_b a} = 1$, $n^{\log_b a} = n^1$. $f(n) = nlogn$, which is greater than $n^{\log_b a}$. We are thus in Case 3 and must find both $\epsilon$ and $c$: $nlogn \in O(n^{1+\epsilon})$. $\epsilon = 1$ makes the RHS $O(n^2)$, and $nlogn$ is $\in O(n^2)$. Then we find $c$: $2f(n/2) \leq cf(n)$. Then $f(n) \leq cf(n)$, so $c = 1$ works to get a strict equality. Thus, our asymptotic form by case 3 of Master's theorem is $T(n) = 2 T(n/2) + n \log{n} \in \Theta(n \log{n})$}
     \item $T(n) = 6 T(n/3) + n^2 \log{n}$
-        \paragraph{Answer} \todo{}
+        \paragraph{Answer}{We use Master's theorem as defined below and find the case that matches. $a$ = 6, $b$ = 3, ${\log_b a} = \frac{\log 6}{\log 3}$ and $n^{\log_b a} = n^{\frac{\log 6}{\log 3}}$. $f(n) = n^2{\log n}$, which is greater than $n^{\log_b a}$. This places us in case 3, where we must find an $\epsilon$ and a $c$: $n^2{\log n} \in O(n^{\frac{\log 6}{\log 3}+\epsilon})$. If $\epsilon = (3 - \frac{\log 6}{\log 3})$ makes the RHS is approximately $O(n^3)$, and $n^2{\log n}$ is $\in O(n^3)$. Now we find $c$: $6f(n/3) \leq cf(n) = 2f(n) \leq cf(n)$. This means $c \geq 2$. Thus the asymptotic form is  $T(n) = 6 T(n/3) + n^2 \log{n}$ = $\Theta(n^2{\log n}).$ }
     \item $T(n) = 4 T(n/2) + n^2$
         \paragraph{Answer}{We use Master's theorem as defined below to find the case that matches. $a$ = 4, $b$ = 2, ${\log_b a} = 2$, $n^{\log_b a} = n^2$. $f(n) = n^2$, which means that $n^{\log_b a} = f(n) = n^2$. We are thus in Case 2, and we do not need to find an $\epsilon$. Our asymptotic form is $T(n) = 4 T(n/2) + n^2 \in \Theta(n^2\log{n})$. }
     \item $T(n) = 9 T(n/3) + n$
@@ -181,6 +227,7 @@ Chapter 1, Problem 9, parts (a) and (b).
 
 \paragraph{Question, Part (a)}{Describe an algorithm to sort an arbitrary stack of n pancakes using O(n) flips. Exactly how many flips does your algorithm perform in the worst case?}
 \paragraph{Answer, Part (a)}
+\todo{}
 
 \paragraph{Question, Part (b)}{For every positive integer n, describe a stack of n pancakes that requires (n) flips to sort.}
 \paragraph{Answer, Part (b)}
