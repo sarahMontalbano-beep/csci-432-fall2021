@@ -4,7 +4,7 @@
 %% UPDATE these variables:
 \renewcommand{\hwnum}{1}
 \title{Advanced Algorithms, Homework \hwnum}
-\author{\todo{Your Name Here}}
+\author{Sarah Montalbano}
 \collab{\todo{list your collaborators here}}
 \date{due: 13 September 2021}
 
@@ -67,8 +67,29 @@ Work in a group of size $\geq 2$.  Explain your strategy for working in a group.
     \item Use induction to prove that, for all $n \in \N$, the complete graph on
         $n$ vertices (denoted by the symbol~$K_n$) has $\frac{n(n-1)}{2}$~edges.
 
-        \paragraph{Answer}
-        \todo{}
+        \begin{proof}
+	Claim: For all $n \in \N$, the complete graph on
+        $n$ vertices (denoted by the symbol~$K_n$) has $\frac{n(n-1)}{2}$~edges.
+	
+	Base case: If $n = 1$, then $\frac{n(n-1)}{2}$ = $\frac{1(1-1)}{2}$ = $0$. A graph with $1$ vertex has $0$ edges, so the claim is true for $n = 1$.
+
+	Inductive hypothesis: Assume that a complete graph with $k$ vertices has a total of $\frac{k(k-1)}{2}$ edges.
+
+	Inductive step: A graph with $k + 1$ vertices has a total of $\frac{(k+1)(k+1-1)}{2}$ = $\frac{k(k+1}{2}$. 
+
+	By the inductive hypothesis, a graph with $k$ vertices has $\frac{k(k-1)}{2}$ edges. Add another vertex $m$ such that the graph now has $k+1$ vertices. In order to maintain the definition of a complete graph, the new edges must go from vertex $m$ to the original $k$ vertices; $k$ new edges have been added. 
+
+	Thus, by the inductive hypothesis and the $k$ edges added to accomodate the additional vertex: 
+
+	$\frac{k(k-1}{2} + k$
+	$= \frac{k(k-1}{2} + \frac{2k}{2}$
+	$ = \frac{k(k-1) + 2k}{2}$
+	$ = \frac{k^2 - k +2k)}{2} $
+	$ = \frac{k^2 + k}{2}$
+	$ = \frac{k(k+1)}{2}$
+	
+	The claim that for all $n \in \N$, the complete graph on $n$ vertices has $\frac{n(n-1)}{2}$~edges, which was to be shown.
+        \end{proof}
 
     \item What is the negation of the following statement: for all integers $n
         \in \Z$, $n$ is prime.
