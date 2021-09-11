@@ -94,8 +94,7 @@ Work in a group of size $\geq 2$.  Explain your strategy for working in a group.
     \item What is the negation of the following statement: for all integers $n
         \in \Z$, $n$ is prime.
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{There exists an integer $n \in \Z$ such that $n$ is not prime.}
 
 \end{enumerate}
 
@@ -110,14 +109,12 @@ or not.
     \item To answer the question \emph{is item $x$ in $A$?}, should we
         sort the array first?  Why or why not?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{No, we should not sort the array first if searching for a single item $x$. This is because a linear search through the array of length $n$ will take $O(n)$ time regardless, and most sorting algorithms will take $O(nlogn)$ in their average case scenarios. If the array were almost sorted, a linear search would only match, not go faster, than the best-case runtimes for insertion sort ($O(n)$), and any other sorting algorithm would perform slower even in the best case. Thus, performing a linear search through the array will be faster if looking for a single item $x$.}
 
     \item Suppose we have $k$ elements that we want to find in $A$. Does this
         change your answer? Why or why~not?
 
-        \paragraph{Answer}
-        \todo{}
+        \paragraph{Answer}{If we are looking for $k$ elements and $k$ is sufficiently large, it will be faster to sort the array of length $n$ before searching for each $k$ element. Let's assume we use an average-case sorting algorithm with a runtime of $O(nlogn)$. The growth of $k \dot n$, for a series of linear searches, will eventually exceed the growth of $k \dot nlogn$ for a sufficiently large $k$. Thus, performing $k$ linear searches on an unsorted array will only be faster than sorting beforehand if $k$ is small.}
 
 \end{enumerate}
 
@@ -148,15 +145,31 @@ on this question).
 Let $T \colon \N \to N$ be defined by $T(1)=1$ and, for $n>1$,
 \begin{enumerate}
     \item $T(n) = 16 T(n/4) + n$
-        \paragraph{Answer} \todo{}
+        \paragraph{Answer}{We use Master's theorem as defined below and find the case that matches. $a$ = 16, $b$ =4, ${\log_b a} = 2$, $n^{\log_b a} = n^2$. $f(n) = n$, which is less than $n^{\log_b a}$. We are thus in Case 1 and must find $\epsilon$: $n \in O(n^{2-\epsilon})$. $\epsilon = 1$ works to find a tight bound. Thus, the asymptotic form by case 1 of Master's theorem is $T(n) = 16 T(n/4) + n \in \Theta(n^2)$.}
     \item $T(n) = 2 T(n/2) + n \log{n}$
-        \paragraph{Answer} \todo{}
+        \paragraph{Answer}{We use Master's theorem as defined below and find the case that matches. $a$ = 2, $b$ = 2, ${\log_b a} = 1$, $n^{\log_b a} = n^1$. $f(n) = nlogn$, which is greater than $n^{\log_b a}$. We are thus in Case 3 and must find both $\epsilon$ and $c$: $nlogn \in O(n^{1+\epsilon})$. $\epsilon = 1$ makes the RHS $O(n^2)$, and $nlogn$ is $\in O(n^2)$. Then we find $c$: $2f(n/2) \leq cf(n)$. Then $f(n) \leq cf(n)$, so $c = 1$ works to get a strict equality. Thus, our asymptotic form by case 3 of Master's theorem is $T(n) = 2 T(n/2) + n \log{n} \in \Theta(n \log{n})$}
     \item $T(n) = 6 T(n/3) + n^2 \log{n}$
         \paragraph{Answer} \todo{}
     \item $T(n) = 4 T(n/2) + n^2$
-        \paragraph{Answer} \todo{}
+        \paragraph{Answer}{We use Master's theorem as defined below to find the case that matches. $a$ = 4, $b$ = 2, ${\log_b a} = 2$, $n^{\log_b a} = n^2$. $f(n) = n^2$, which means that $n^{\log_b a} = f(n) = n^2$. We are thus in Case 2, and we do not need to find an $\epsilon$. Our asymptotic form is $T(n) = 4 T(n/2) + n^2 \in \Theta(n^2\log{n})$. }
     \item $T(n) = 9 T(n/3) + n$
-        \paragraph{Answer} \todo{}
+        \paragraph{Answer}{We use Master's theorem as defined below and find the matching case. $a$ = 9, $b$ = 3, ${\log_b a} = 2$, $n^{\log_b a} = n^2$. $f(n) = n$, which is less than $n^{\log_b a}$. We are thus in Case 1 and we must find an $\epsilon$ that completes this statement correctly: $n \in O(n^{2-\epsilon})$. $\epsilon = 1$ creates a tight bound. The asymptotic form is thus $T(n) = 9 T(n/3) + n \in \Theta(n^2)$}
+\end{enumerate}
+
+From the Master's Theorem handout: 
+Master's theorem allows us to quickly solve recurrence relations of the form:
+$$ T(n) = a T(n/b) + f(n),$$
+where $a, b \in \N$ such that $a \geq 1$ and $b >0$ and $f(n)$ is asymptotically
+positive.  Then, we can determine the closed-form of $T(n)$ as follows:
+\begin{enumerate}
+    \item IF there exists $\varepsilon \in \R_+$ such that $f(n) \in O(n^{\log_b
+        a - \varepsilon})$, THEN $T(n) \in \Theta(n^{\log_b a})$.
+    \item IF there exists $\varepsilon \in \R_+$ such that $f(n) \in \Theta(n^{\log_b
+        a})$, THEN $T(n) \in \Theta(n^{\log_b a}\log n)$.
+    \item IF (1) there exists $\varepsilon \in \R_+$ such that $f(n) \in O(n^{\log_b
+        a + \varepsilon})$
+        and (2) there exists $c \in (0,1)$ and $n_0 \in \N$ such that for all $n
+        \geq n_0$, $a f(n/b) \leq c f(n)$, THEN $T(n) \in \Theta(f(n))$.
 \end{enumerate}
 
 
@@ -166,9 +179,8 @@ Let $T \colon \N \to N$ be defined by $T(1)=1$ and, for $n>1$,
 
 Chapter 1, Problem 9, parts (a) and (b).
 
+\paragraph{Question, Part (a)}{Describe an algorithm to sort an arbitrary stack of n pancakes using O(n) flips. Exactly how many flips does your algorithm perform in the worst case?}
 \paragraph{Answer, Part (a)}
-
-\todo{}
 
 \paragraph{Answer, Part (b)}
 
