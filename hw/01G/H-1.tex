@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{../fasy-hw}
+\usepackage{algorithmicx}
 
 %% UPDATE these variables:
 \renewcommand{\hwnum}{1}
@@ -231,13 +232,53 @@ positive.  Then, we can determine the closed-form of $T(n)$ as follows:
 Chapter 1, Problem 9, parts (a) and (b).
 
 \paragraph{Question, Part (a)}{Describe an algorithm to sort an arbitrary stack of n pancakes using O(n) flips. Exactly how many flips does your algorithm perform in the worst case?}
-\paragraph{Answer, Part (a)}
-\todo{}
+\paragraph{Answer, Part (a)}{This problem requires us to sort a stack of differently-sized pancakes with larger pancakes on the bottom and smaller ones on top. The only operation at our disposal is a flip, which inserts a spatula under the top $k$ pancakes for some integer between 1 and $n$ ($n$ being the size of the stack), and flips them all over. The algorithm accepts a stack of pancakes to be sorted and returns the sorted stack  of pancakes.
+
+The prose description of the algorithm is as follows: If the size of a stack is 0, then there are no pancakes and the stack is trivially sorted. If the size of the stack of pancakes is 1, there is one pancake and the stack is trivially sorted. For sizes of the stack greater than 1, we should flip the largest pancake $n$ to the top (line 5 in PancakeSort), flip $n$ to the bottom by flipping the whole stack (line 5), and then recurse on the top $n-1$ pancakes (line 6). The "flip" function performs the flip to its correct position above the largest pancake. maxIndex finds the index of the largest pancake. 
+
+Psuedocode:
+\begin{algorithmic}
+\Function{PancakeSort}{stack}
+\State $n\gets length(stack)$
+\While{$n \geq 1$}
+	\State maxindex = maxIndex(stack, n)
+	\State flip(stack, maxindex)
+	\State flip(stack, n-1)
+	\State $n -= 1$
+\EndWhile
+\EndFunction
+\end{algorithmic}
+
+\begin{algorithmic}
+\Function{flip}{stack, m}
+\State set left $\gets 0$
+\While{left $<$ m}
+	stack[left], stack[m] = stack[m], stack[left]
+	m -= 1
+	left += 1
+\EndWhile
+\EndFunction
+\end{algorithmic}
+\begin{algorithmic}
+\Function{maxIndex}{stack, m}
+\State index $\gets 0$
+\For{i in range(m)}
+	\If {stack[i] $>$ stack[index]}
+		\State index = i
+	\EndIf
+\EndFor
+\Return index
+\EndFunction
+\end{algorithmic}
+
+"Exactly how many flips does your algorithm perform in the worst case?" The most possible flips are 2n -3: there will be 2 flips per $n$ pancakes that are being sorted, so we start at $2n$. The second to last pancake only needs 1 flip to come to the top (-1) and the last pancake doesn't need either flip (-2). 
+
+Worst-case runtime would be $\Omega(n)$ because the worst-case flips are 2n - 3, and the constant -3 and multiplication by 2 can be ignored in time analysis. (If we were factoring in the searching time, which is linear $n$ for finding the largest pancake in the stack, then worst-case runtime will be closer to $\Omega(n^2).$ -- one $n$ for the searching times one $n$ for the flipping.
+
+The recursion invariant is: after any $k$ number of steps, the largest $k$ pancakes are in their correct positions. This would be checked right after line 7 in PancakeSort(), after each iteration of the While loop had executed.
 
 \paragraph{Question, Part (b)}{For every positive integer n, describe a stack of n pancakes that requires (n) flips to sort.}
-\paragraph{Answer, Part (b)}
-
-\todo{}
+\paragraph{Answer, Part (b)}{A stack of size $n$ that is sorted in reverse, e.g. every pancake has a larger one on top of it, such that the largest is on top, will only need one flip to be perfectly sorted.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \collab{\todo{}}
@@ -246,15 +287,30 @@ Chapter 1, Problem 9, parts (a) and (b).
 Chapter 1, Problem 37.  For this problem, please provide a full proof of
 correctness (i.e., provide a proof for the recursion invariant).
 
-\paragraph{Question}{For this problem, a subtree of a binary tree means any connected subgraph.
-A binary tree is complete if every internal node has two children, and every
+\paragraph{Question}{For this problem, a subtree of a binary tree means any connected subgraph. A binary tree is complete if every internal node has two children, and every
 leaf has exactly the same depth. Describe and analyze a recursive algorithm
 to compute the largest complete subtree of a given binary tree. Your algorithm
-should return both the root and the depth of this subtree. See Figure 1.26
-for an example.}
+should return both the root and the depth of this subtree.}
 
-\paragraph{Answer}
-\todo{}
+\paragraph{Answer}{Asking for the largest complete subtree of a given binary tree is essentially asking for the complete depth at each vertice $v$. To solve this problem, we can perform a recursive traversal through the graph (essentially a postorder traversal). The base case occurs if there is no $v$ to examine (line 2, where $v$ = null). Then the else statement recursively does the algorithm on the left and right sides of the vertex (line 5 and 6) and then compares to get the minimum. The pseudocode is as follows:}
+
+\begin{algorithmic}
+\Function{completeDepth}{vertex}
+\If {v = null}
+\Return -1
+\Else
+	\State leftCompleteDepth $\gets$ completeDepth(left(vertex))
+	\State rightCompleteDepth $\gets$ completeDepth(right(vertex))
+	\State CD(vertex) $\gets$ min{leftCompleteDepth, rightCompleteDepth} + 1
+	\State \Return CD(vertex)
+\EndIf
+\EndFunction
+\end{algorithmic}
+
+The runtime of this algorithm is $\Theta(n)$, where $n$ is the number of nodes in the tree. This is because the algorithm spends $\Theta(1)$ at each node. 
+
+The recursion invariant proof \todo{}
+
 
 
 
