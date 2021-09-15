@@ -6,7 +6,7 @@
 \renewcommand{\hwnum}{1}
 \title{Advanced Algorithms, Homework \hwnum}
 \author{Sarah Montalbano}
-\collab{\todo{list your collaborators here}}
+\collab{Ryan FitzSimmons}
 \date{due: 13 September 2021}
 
 \begin{document}
@@ -45,16 +45,15 @@ General homework expectations:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{N/A}
+\collab{Ryan FitzSimmons}
 \nextprob{Groups}
 
 Work in a group of size $\geq 2$.  Explain your strategy for working in a group.
 
-\paragraph{Answer}
-\todo{}
+\paragraph{Answer}{Working in a group means splitting the problems, discussing them once one of the partners has come to some sort of answer or struggled with it for long enough, and then coming to a conclusion. Then each partner types up their solution, with Sarah proofreading the entire assignment for accuracy, then returning it to Ryan to ensure that the no changes to the content were made that aren't appropriate. We completed this entire assignment through collaborative online tools rather than meeting in person. Ryan has assumed responsibility of turning in the assignment to both D2L and Gradescope (with Sarah attached as a collaborator in Gradescope).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{Ryan FitzSimmons}
 \nextprob{More Basics}
 
 \begin{enumerate}
@@ -62,7 +61,7 @@ Work in a group of size $\geq 2$.  Explain your strategy for working in a group.
     \item Use the definition of big-Theta notation to prove that $f(x)=4n-5$
         is $\Theta(n+1)$.
 
-        \paragraph{Answer}{The definition of $\Theta(n+1)$ is as follows: $f(x)$ is $\Theta(n+1) \Leftrightarrow \exists  n \in \mathbb{N}$ and $a, b \in \mathbb{R}$ s.t. $\forall n \geq N: b(n + 1) \leq f(x) \leq a(n + 1).$ 
+        \paragraph{Answer}{The definition of $\Theta(n+1)$ is (from class notes) as follows: $f(x)$ is $\Theta(n+1) \Leftrightarrow \exists  n \in \mathbb{N}$ and $a, b \in \mathbb{R}$ s.t. $\forall n \geq N: b(n + 1) \leq f(x) \leq a(n + 1).$ 
 
 We claim that there exists an $N, a, b$ s.t. $f(x) = 4n-5$ is $\Theta(n + 1).$ 
 
@@ -81,16 +80,16 @@ Therefore, we have $\forall n \geq N, -\frac{1}{2}(n+1) \leq n + 1 \leq 2(n+1)$,
 
 	Inductive hypothesis: Assume that a complete graph with $k$ vertices has a total of $\frac{k(k-1)}{2}$ edges.
 
-	Inductive step: A graph with $k + 1$ vertices has a total of $\frac{(k+1)(k+1-1)}{2}$ = $\frac{k(k+1}{2}$. 
+	Inductive step: A graph with $k + 1$ vertices has a total of $\frac{(k+1)(k+1-1)}{2}$ = $\frac{k(k+1)}{2}$. 
 
 	By the inductive hypothesis, a graph with $k$ vertices has $\frac{k(k-1)}{2}$ edges. Add another vertex $m$ such that the graph now has $k+1$ vertices. In order to maintain the definition of a complete graph, the new edges must go from vertex $m$ to the original $k$ vertices; $k$ new edges have been added. 
 
 	Thus, by the inductive hypothesis and the $k$ edges added to accomodate the additional vertex: 
 
-	$\frac{k(k-1}{2} + k$
-	$= \frac{k(k-1}{2} + \frac{2k}{2}$
+	$\frac{k(k-1)}{2} + k$
+	$= \frac{k(k-1)}{2} + \frac{2k}{2}$
 	$ = \frac{k(k-1) + 2k}{2}$
-	$ = \frac{k^2 - k +2k)}{2} $
+	$ = \frac{k^2 - k +2k}{2} $
 	$ = \frac{k^2 + k}{2}$
 	$ = \frac{k(k+1)}{2}$
 	
@@ -106,7 +105,7 @@ Therefore, we have $\forall n \geq N, -\frac{1}{2}(n+1) \leq n + 1 \leq 2(n+1)$,
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{Ryan FitzSimmons}
 \nextprob{Sorting before Searching?}
 Let $A$ be an array of $n$ comparable objects.  We do not know if $A$ is sorted
 or not.
@@ -125,7 +124,7 @@ or not.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{Ryan FitzSimmons}
 \nextprob{Recurrence Relations}
 Consider the function $T \colon \N \to \N$ defined by
 $$T(n) = \begin{cases}
@@ -188,7 +187,7 @@ Therefore,  we have $\forall n \geq N, n \leq n \leq n$, which gives us that $T(
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{Ryan FitzSimmons}
 \nextprob{More Recurrence Relations}
 
 What is the asymptotic form of the following recurrence
@@ -244,7 +243,7 @@ Psuedocode:
 	\State maxindex = maxIndex(stack, n)
 	\State flip(stack, maxindex)
 	\State flip(stack, n-1)
-	\State $n -= 1$
+	\State $n--$
 \EndWhile
 \EndFunction
 \end{algorithmic}
@@ -253,9 +252,9 @@ Psuedocode:
 \Function{flip}{stack, m}
 \State set left $\gets 0$
 \While{left $<$ m}
-	stack[left], stack[m] = stack[m], stack[left]
-	m -= 1
-	left += 1
+	\State stack[left], stack[m] = stack[m], stack[left]
+	\State m--
+	\State left++
 \EndWhile
 \EndFunction
 \end{algorithmic}
@@ -267,15 +266,17 @@ Psuedocode:
 		\State index = i
 	\EndIf
 \EndFor
-\Return index
+\State \Return index
 \EndFunction
 \end{algorithmic}
 
-"Exactly how many flips does your algorithm perform in the worst case?" The most possible flips are 2n -3: there will be 2 flips per $n$ pancakes that are being sorted, so we start at $2n$. The second to last pancake only needs 1 flip to come to the top (-1) and the last pancake doesn't need either flip (-2). 
+"Exactly how many flips does your algorithm perform in the worst case?" The most possible flips are $2n - 3$: there will be 2 flips per $n$ pancakes that are being sorted, so we start at $2n$. The second to last pancake only needs 1 flip to come to the top (-1) and the last pancake doesn't need either flip (-2). 
 
-Worst-case runtime would be $\Omega(n)$ because the worst-case flips are 2n - 3, and the constant -3 and multiplication by 2 can be ignored in time analysis. (If we were factoring in the searching time, which is linear $n$ for finding the largest pancake in the stack, then worst-case runtime will be closer to $\Omega(n^2).$ -- one $n$ for the searching times one $n$ for the flipping.
+Worst-case runtime would be $\Omega(n)$ because the worst-case flips are 2n - 3, and the constant -3 and multiplication by 2 can be ignored in time analysis. (If we were factoring in the searching time represented by maxIndex, which is linear $n$ for finding the largest pancake in the stack, then worst-case runtime will be closer to $\Omega(n^2).$ -- one $n$ for the searching times one $n$ for the flipping.
 
 The recursion invariant is: after any $k$ number of steps, the largest $k$ pancakes are in their correct positions. This would be checked right after line 7 in PancakeSort(), after each iteration of the While loop had executed.
+
+Clarification on the problem and pseudocode from here: \url{https://en.wikipedia.org/wiki/Pancake_sorting}. Also consulted: \url{http://www.cs.cmu.edu/~venkatg/teaching/15252-sp20/notes/pancakes-notes.pdf}
 
 \paragraph{Question, Part (b)}{For every positive integer n, describe a stack of n pancakes that requires (n) flips to sort.}
 \paragraph{Answer, Part (b)}{A stack of size $n$ that is sorted in reverse, e.g. every pancake has a larger one on top of it, such that the largest is on top, will only need one flip to be perfectly sorted.}
@@ -292,7 +293,7 @@ leaf has exactly the same depth. Describe and analyze a recursive algorithm
 to compute the largest complete subtree of a given binary tree. Your algorithm
 should return both the root and the depth of this subtree.}
 
-\paragraph{Answer}{Asking for the largest complete subtree of a given binary tree is essentially asking for the complete depth at each vertice $v$. To solve this problem, we can perform a recursive traversal through the graph (essentially a postorder traversal). The base case occurs if there is no $v$ to examine (line 2, where $v$ = null). Then the else statement recursively does the algorithm on the left and right sides of the vertex (line 5 and 6) and then compares to get the minimum. The pseudocode is as follows:}
+\paragraph{Answer}{Asking for the largest complete subtree of a given binary tree is essentially asking for the complete depth at each vertice $v$. To solve this problem, we can perform a recursive postorder traversal through the graph. The base case occurs if there is no $v$ to examine (line 2, where $v$ = null). Then the else statement recursively does the algorithm on the left and right sides of the vertex (line 5 and 6) and then compares to get the minimum. The pseudocode is as follows:}
 
 \begin{algorithmic}
 \Function{completeDepth}{vertex}
@@ -301,7 +302,7 @@ should return both the root and the depth of this subtree.}
 \Else
 	\State leftCompleteDepth $\gets$ completeDepth(left(vertex))
 	\State rightCompleteDepth $\gets$ completeDepth(right(vertex))
-	\State CD(vertex) $\gets$ min{leftCompleteDepth, rightCompleteDepth} + 1
+	\State CD(vertex) $\gets$ min\{leftCompleteDepth, rightCompleteDepth\} + 1
 	\State \Return CD(vertex)
 \EndIf
 \EndFunction
@@ -309,7 +310,13 @@ should return both the root and the depth of this subtree.}
 
 The runtime of this algorithm is $\Theta(n)$, where $n$ is the number of nodes in the tree. This is because the algorithm spends $\Theta(1)$ at each node. 
 
-The recursion invariant proof \todo{}
+The recursion invariant is that leftCompleteDepth and rightCompleteDepth is either null or pointers to valid nodes. \todo{}
+
+Psuedocode adapted from implementation of postorder traversal here (the concept is basically the same): \url{https://www.techiedelight.com/postorder-tree-traversal-iterative-recursive/}
+
+Interesting paper discussion of postorder traversal loop invariants: \url{https://qrs20.techconf.org/QRSC2020_FULL/pdfs/QRS-C2020-4QOuHkY3M10ZUl1MoEzYvg/891500a669/891500a669.pdf}
+
+
 
 
 
