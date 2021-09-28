@@ -48,9 +48,9 @@ lcs(A[1..m], B[1..n]) =
   \end{cases}
 \end{equation}}
 
-The recursion invariant is: 
+The recursion invariant is: \todo{}
 
-Proof: 
+Proof: \todo{}
 
 \paragraph{Answer}{Part (b): Give the recurrence relation, state the recursion invariants, and prove that the recurrence relation terminates using a decrementing function.}
 
@@ -65,11 +65,58 @@ SCS(A, B, m, n) =
   \end{cases}
 \end{equation}
 
-The recursion invariant:
+The recursion invariant: \todo{}
 
-Proof of Termination:
+Proof of Termination: \todo{}
 
 \paragraph{Answer}{Part (c): Recurrence relation and state recursion invariants.}
 
-The recurrence relation:
+The longest increasing subsequence and longest decreasing subsequence algorithms are symmetric to each other. Let $i$ be the index of the location in array $A$ where the longest increasing subsequence ends and the longest decreasing subsequence starts. Let LIS() be the length of the longest increasing subsequence ending at A[j] and LDS() be the length of the longest decreasing subsequence starting at A[j]. Let $n$ be the length of A. 
+
+So we must have a recurrence relation for the longest increasing subsequence: 
+\begin{equation}
+LIS(i) = 
+\begin{cases}
+1 + \max{LIS(j)} & \text{for all $ 0 < i < j$ and $A[i] < A[j]$}\\
+\end{cases}
+\end{equation}
+and a recurrence relation for the longest decreasing subsequence:
+\begin{equation}
+LDS(i) = 
+\begin{cases}
+1 + \max{LDS(j)} & \text{for all $0 < j < i$ and $A[j] < A[i]$.}
+\end{cases}
+\end{equation}
+
+The longest bitonic subsequence is found where $\max{LIS(i)+LDS(i)-1}$.
+
+Consulted \url{https://www.geeksforgeeks.org/longest-bitonic-subsequence-dp-15/}  for prose explanation and connection to LIS and LDS. 
+
+Recursion invariant: \todo{}
+
+\paragraph{Answer}{Part (d): Recurrence relation and state recursion invariants}
+
+The recurrence relation can again be broken into two parts, where Upper(i,j) denotes the length of the longest alternating subsequence of A[j..n] whose first element is larger than A[i] and whose second element is smaller than its first. Lower(i, j) denotes the length of the longest alternating subsequence of A[j..n] whose first element is smaller than A[i] and whose second element is larger than its first. 
+
+The recurrences are thus: 
+
+\begin{equation}
+Upper(i,j) = 
+\begin{cases}
+0 & \text{if $j > n$}\\
+Upper(i, j+1) & \text{if $j \leq n$ and $A[j] \leq A[i]$}\\
+\max{Upper(i, j+1), 1 + Lower(j, j+1)} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\begin{equation}
+Lower(i,j) = 
+\begin{cases}
+0 & \text{if $j > n$}\\
+Lower(i, j+1) & \text{if $j \leq n$ and $A[j] \geq A[i]$}\\
+\max{Lower(i, j+1), 1 + Upper(j, j+1)} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Then the length of the longest alternating subsequence is $\max{1 + Upper(j, j+1), 1 + Lower(j, j+1)}$.
 \end{document}
