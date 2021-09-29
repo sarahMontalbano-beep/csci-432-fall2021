@@ -6,7 +6,7 @@
 \title{Advanced Algorithms, Homework \hwnum}
 \author{Sarah Montalbano}
 \collab{none}
-\date{due: 27 September 2021}
+\date{due: 29 September 2021}
 
 \begin{document}
 
@@ -41,16 +41,30 @@ using a decrementing function.
 \paragraph{Answer}{Part (a): Give the recurrence relation, state the recursion invariants, and prove that the recursion invariant holds.
 
 \begin{equation}
-lcs(A[1..m], B[1..n]) = 
+lcs(A, B, m, n) = 
 \begin{cases}
-    1 + lcs(A[2..m], B[2..n] & \text{if $A[1] = B[1]$}.\\
-    max(lcs(A[1..m], B[2..n], lcs(A[2..m, B[1..n])), & \text{otherwise}.
+    0 & \text{if m = 0 or n = 0}\\
+    1 + lcs(A, B, m - 1, n -1) & \text{if $m, n > 0$ and $A[m] = B[n]$}.\\
+    \max{lcs(A, B, m, n-1), lcs(A, B, m-1, n)}, & \text{otherwise}.
   \end{cases}
 \end{equation}}
 
-The recursion invariant is: \todo{}
+The recursion invariant described here assumes that the values are being stored in a memoization table of dimensions len(A) + 1 and len(B) + 1. The longest common subsequence should thus be in the bottom-right corner position of the array (dimensions m,n). 
 
-Proof: \todo{}
+The first invariant: rows 0..m-1 of the memoization array are filled correctly
+The second invariant: within row m of the memoization array (inner loop), columns 0..n-1 are filled correctly. 
+
+We prove our loop invariants (if this makes no sense, I'm sorry) as follows. 
+
+Initialization: When the algorithm enters the outer loop (for loop from 1 to < len(A)) for the first time, we calculate the right value of LCS(1, 0) = 0 by the base case of our recurrence relation (if m | n = 0). Similarly, as we enter the nested loop (for loop from 1 to len(B)), the right value for LCS(0, 1) = 0 is calculated by the base case of our recurrence relation (if m | n = 0). When both m and n are 1, we get LCS(1,1) which puts us in case 2 of our recurrence relation s.t. 1 + LCS(0,0) = 1. Thus the recurrence returns the correct values for LCS(1, 0), LCS(0,1) and LCS(1,1). 
+
+Maintenance: Assuming the loop invariant is true for the k and p iteration of the algorithm, then the loop invariant is true for the k + 1 and p + 1 iteration of the algorithm. Let some $1 < k < len(A)$ and some $1 < p < len(B)$ correspond to a kth and pth iteration of the outer and inner loops. So if $k \neq p$ then LCS(k + 1, p + 1) = $\max{lcs(k + 1, p - 1 + 1), lcs(k - 1 + 1, p + 1)}$ =  $\max{lcs(k + 1, p), lcs(k, p + 1)}.$ And since we know that the loop invariant holds true for k and p, we can be certain that the recurrence returns correct values when $k \neq p$. (The recurrence is simply extrapolating out an additional kth or pth place in the memoization table based on either p or k and taking the maximum value).  
+
+The correctness is more obvious when we consider when $k = p$. Then for k + 1 and p + 1 we have case 2 in the recurrence relation, where 1 + lcs(k - 1 + 1, p - 1 + 1). = 1 + lcs(k, p). Because we know lcs(k, p) has been computed correctly, then we can be certain that the recurrence returns correct values for k + 1 and p + 1.  
+
+Termination: The loop ends when the index at the len(A) and len(B) has been calculated (and incidentally is the length of the longest common subsequence). Because all preceding indexes in the array have been calculated correctly (based on the maintenance step) we can be sure that the final call has the information it needs to calculate correctly (case 2 where len(A) and len(B) are equal) LCS(m - 1, n - 1) or $\max{LCS(m, n - 1), LCS(m - 1, n)}$. 
+
+Consulted \url{https://www.cs.scranton.edu/~mccloske/courses/cmps240/longest_common_subseq_240.html} for clarification about the recurrence relation, invariants, and the Java code that was helpful to stare at for the recursion invariant proof. Also consulted \url{https://www.cs.dartmouth.edu/~deepc/Courses/S19/lecs/lec8.pdf} for a different take on the recursion invariant (I don't really understand the symbols used!). 
 
 \paragraph{Answer}{Part (b): Give the recurrence relation, state the recursion invariants, and prove that the recurrence relation terminates using a decrementing function.}
 
@@ -58,16 +72,19 @@ The recurrence relation:
 \begin{equation}
 SCS(A, B, m, n) = 
 \begin{cases}
-   $m + n$ & \text{$m = 0$}\\
-   $m + n$ & \text{$n = 0$}\\
-    SCS(A, B, m-1, n-1) + 1 & \text{A[m] = B[n]}\\
+   $m + n$ & \text{$m = 0$ or $n = 0$}\\
+    SCS(A, B, m-1, n-1) + 1 & \text{if m, n $>$ 0 and A[m] = B[n]}\\
     min(SCS(A, B, m, n - 1), SCS(A, B, m - 1, n))+ 1 & \text{otherwise}.
   \end{cases}
 \end{equation}
 
-The recursion invariant: \todo{}
+The recursion invariant: The recursion invariants for populating the table are the same as the recursion invariant for the longest common subsequence problem. The first invariant is rows 0..m-1 of the memoization array are filled correctly; within row m of the memoization array (inner loop), columns 0..n-1 are filled correctly. But instead of selecting the maximum of SCS(m, n-1) and SCS(m - 1, n), we select the minimum of the two. This means, in effect, that we sum the length of the two strings and subtract the longest common subsequence length. 
 
 Proof of Termination: \todo{}
+
+We can prove the 
+
+Consulted \url{https://simplecodehints.com/blog/shortest-common-supersequence-problem/} for prose explanation and confirmation of recurrence relation. 
 
 \paragraph{Answer}{Part (c): Recurrence relation and state recursion invariants.}
 
@@ -119,4 +136,39 @@ Lower(i, j+1) & \text{if $j \leq n$ and $A[j] \geq A[i]$}\\
 \end{equation}
 
 Then the length of the longest alternating subsequence is $\max{1 + Upper(j, j+1), 1 + Lower(j, j+1)}$.
+
+Recursion Invariants: rows i starting from n decreasing to 1 of the memoization array are filled correctly. Within row i of the memoization array (inner loop), columns j-1 to 1 are filled correctly. 
+
+\paragraph{Answer}{Part (e): Recurrence relation and state recursion invariants}
+
+Following the intuition of longest common subsequence and shortest common supersequence, I'm going to switch out the max for min and hope that it works the same way here. 
+
+\begin{equation}
+Upper(i,j) = 
+\begin{cases}
+0 & \text{if $j > n$}\\
+Upper(i, j+1) & \text{if $j \leq n$ and $A[j] \leq A[i]$}\\
+\min{Upper(i, j+1), 1 + Lower(j, j+1)} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\begin{equation}
+Lower(i,j) = 
+\begin{cases}
+0 & \text{if $j > n$}\\
+Lower(i, j+1) & \text{if $j \leq n$ and $A[j] \geq A[i]$}\\
+\min{Lower(i, j+1), 1 + Upper(j, j+1)} & \text{otherwise}
+\end{cases}
+\end{equation}
+
+Recursion Invariant: \todo{}
+
+\paragraph{Answer}{Part (f): Recurrence relation and state recursion invariants}
+\begin{equation}
+LXS(i,j) =
+\begin{cases}
+1 + \max{LXS(j, k)} & \text{$j < k \leq n$ and $A[i] + A[k] > 2A[j]$}
+\end{cases}
+\end{equation}
+Recursion Invariant: For the outer loop i starting at $n-1$ decreasing to 1, rows n-1 to 1 are filled in correctly. For the second inner loop j from n down to i +1, the columns are filled in correctly. And for the innermost loop k from j + 1 to n, the calculation of LXS returns the right value. 
 \end{document}
