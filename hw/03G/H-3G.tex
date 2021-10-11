@@ -58,11 +58,11 @@ move.''  Prove this statement is correct.
 \begin{proof}
 Claim: If the number of total tokens on the board $n \geq 1$, then at least one player can legally move and either player 1 (horizontal) or player 2 (vertical) wins eventually.
 
-Base Case: $n = 1$. In the base case, there is only one token on the board. The token belongs to either player 1 or player 2, and the other player has no tokens on the board. This implies that the other player (e.g. the player without tokens on the board) has already won the game. The player with $n = 1$ tokens can legally move 1 space to the right (if player 1) or down (if player 2) but cannot jump a token of the other player because the other player has no tokens on the board. Thus, whichever player with tokens $n =1$ is able to legally move, and the claim is true.
+Base Case: $n = 1$. In the base case, there is only one token on the board. The token belongs to either player 1 or player 2, and the other player has no tokens on the board. This implies that the other player (e.g. the player without tokens on the board) has already won the game. The player with $n = 1$ tokens can legally move 1 space to the right (if player 1) or down (if player 2) but cannot jump a token of the other player because the other player has no tokens on the board. Thus, whichever player with tokens $n =1$ is able to legally move; the claim is true for $n = 1$.
 
 Inductive Assumption: Assume that, for all $k > 1$ and $k = n$, that at least one player can legally move and either player 1 or player 2 wins eventually. 
 
-Inductive Step: 
+Inductive Step: If for all tokens $k > 1$ and $k = n$ at least one player can legally move, and either player 1 or player 2 wins eventually, then the claim must be true for $k + 1$ as well. The total number of tokens may not exceed $2n$, where $n$ is the dimension of the game board, and each player may have a maximum of $n$ tokens left in play. Each player, when there are a total of $k + 1$ tokens on the board, may have between 1 and $(k + 1)/2$ tokens on the board. The other player must have the reciprocal number of tokens. Thus if each player has $(k+1)/2$ tokens, each player has two legal move choices: the player may move right (if player 1) or down (if player 2), or may possibly be able to jump an opponent token. 
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,11 +72,11 @@ Inductive Step:
 Chapter 3, Problem 26.  Only one algorithm is needed. Bonus points for a
 solution that beats $O(n^5)$ though!
 
-The brute force approach is to manually compare two distinct positions, A and B, in the bitmap. The algorithm then calculates all rectangles with A as the top-left corner, then all rectangles with B as a top left corner. Each rectangle in A and B can have a length l and breadth b, so those are two more for loops. Then it compares every bit of both rectangles (l * b), and if they match then there is a pattern of area l*b that repeats, and if l*b is greater than the previously-seen maximum area, the area is updated. The procedure is repeated for all pairs of A and B. 
+The brute force approach is to manually compare two distinct positions, A and B, in the bitmap. The algorithm then calculates all rectangles with A as the top-left corner, then all rectangles with B as a top left corner. Each rectangle in A and B can have a length $l$ and breadth $b$, so those are two more for loops. Then it compares every bit of both rectangles ($l * b$), and if they match then there is a pattern of area $l*b$ that repeats, and if $l*b$ is greater than the previously-seen maximum area, the area is updated. The procedure is repeated for all pairs of A and B. 
 
 Time complexity will be on the order of $\mathcal{O}(n^8)$. There are $n^2$ possible rectangles with any given point as their top-left corner and $n^2$ points in each rectangle that must be compared. Because there are two rectangles being compared at any point, the $\mathcal{O}(n^4)$ comparisons for each rectangle is doubled for an overall complexity of $\mathcal{O}(n^8).$
 
-The brute-force algorithm can be optimized into $\mathcal{O}(n^4)$ by performing the following memoization technique.
+The brute-force algorithm can be optimized into $\mathcal{O}(n^4)$ by performing the following memoization technique and storing previously-calculated comparisons. 
 
 https://stackoverflow.com/questions/56701990/bitmap-pattern-recogination
 
