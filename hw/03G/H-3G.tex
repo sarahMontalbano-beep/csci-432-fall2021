@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage{../fasy-hw}
+\usepackage{algorithim}
+\usepackage{algpseudocode}
 
 %% UPDATE these variables:
 \renewcommand{\hwnum}{3}
@@ -56,33 +58,101 @@ move.''  Prove this statement is correct.
 
 \paragraph{Answer:}
 \begin{proof}
-Claim: If the number of total tokens on the board $n \geq 1$, then at least one player can legally move and either player 1 (horizontal) or player 2 (vertical) wins eventually.
+Claim: If the number of total tokens on the board $n \geq 1$, then at least one player can legally move.
 
-Base Case: $n = 1$. In the base case, there is only one token on the board. The token belongs to either player 1 or player 2, and the other player has no tokens on the board. This implies that the other player (e.g. the player without tokens on the board) has already won the game. The player with $n = 1$ tokens can legally move 1 space to the right (if player 1) or down (if player 2) but cannot jump a token of the other player because the other player has no tokens on the board. Thus, whichever player with tokens $n =1$ is able to legally move; the claim is true for $n = 1$.
+Base Case: $n = 1$. In the base case, there is only one token on the board. The token belongs to either player 1 or player 2, and the other player has no tokens on the board. This implies that the other player (e.g. the player without tokens on the board) has already won the game. The player with $n = 1$ tokens can legally move 1 space to the right (if player 1) or down (if player 2) but cannot jump a token of the other player because the other player has no tokens on the board. There is also no valid reason to pass because it is impossible for other tokens to block. Thus, whichever player with tokens $n =1$ is able to legally move; the claim is obviously true for $n = 1$.
 
-Inductive Assumption: Assume that, for all $k > 1$ and $k = n$, that at least one player can legally move and either player 1 or player 2 wins eventually. 
+The claim can be proved by contradiction for the remaining $n > 1$. Suppose that at any given turn neither player has a legal move to make. This assumption requires that both player 1 (horizontal) and player 2 (vertical) are blocked by two opponent pieces. However, this arrangement requires that either the vertical player have multiple tokens in the same column, or the horizontal player have multiple tokens in the same row, both of which are impossible. Therefore, if the number of total tokens on the board is $n \geq 1$, then at least one player can legally move, which was to be shown.
 
-Inductive Step: If for all tokens $k > 1$ and $k = n$ at least one player can legally move, and either player 1 or player 2 wins eventually, then the claim must be true for $k + 1$ as well. The total number of tokens may not exceed $2n$, where $n$ is the dimension of the game board, and each player may have a maximum of $n$ tokens left in play. Each player, when there are a total of $k + 1$ tokens on the board, may have between 1 and $(k + 1)/2$ tokens on the board. The other player must have the reciprocal number of tokens. Thus if each player has $(k+1)/2$ tokens, each player has two legal move choices: the player may move right (if player 1) or down (if player 2), or may possibly be able to jump an opponent token. 
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{None}
 \nextprob{Repeated pattern}
 
 Chapter 3, Problem 26.  Only one algorithm is needed. Bonus points for a
 solution that beats $O(n^5)$ though!
 
-The brute force approach is to manually compare two distinct positions, A and B, in the bitmap. The algorithm then calculates all rectangles with A as the top-left corner, then all rectangles with B as a top left corner. Each rectangle in A and B can have a length $l$ and breadth $b$, so those are two more for loops. Then it compares every bit of both rectangles ($l * b$), and if they match then there is a pattern of area $l*b$ that repeats, and if $l*b$ is greater than the previously-seen maximum area, the area is updated. The procedure is repeated for all pairs of A and B. 
+\begin{itemize}
+            \item \emph{What}: The problem is to find the maximum-area rectangular pattern that appears more than once in a given bitmap. The input is a two-dimensional array of bits $M[1..n, 1..n]$ and the output is the area of the largest repeated rectangular pattern in M. The brute force algorithm is to manually compare two distinct positions, A and B, in the bitmap. The algorithm then calculates all rectangles with A as the top-left corner, then all rectangles with B as a top left corner. Each rectangle in A and B can have a length $l$ and breadth $b$, so those are two more for loops. Then it compares every bit of both rectangles ($l * b$), and if they match then there is a pattern of area $l*b$ that repeats, and if $l*b$ is greater than the previously-seen maximum area, the area is updated. The procedure is repeated for all pairs of A and B. 
 
-Time complexity will be on the order of $\mathcal{O}(n^8)$. There are $n^2$ possible rectangles with any given point as their top-left corner and $n^2$ points in each rectangle that must be compared. Because there are two rectangles being compared at any point, the $\mathcal{O}(n^4)$ comparisons for each rectangle is doubled for an overall complexity of $\mathcal{O}(n^8).$
+The brute-force algorithm can be optimized into $\mathcal{O}(n^4)$ by performing memoization to store previously-calculated values and avoiding calculating unnecessary/unreachable values. This occurs in Compare, which takes two points in the image, stores whether one point matches the other, then looks up rectangles of $x_1, y_1$ and $x_2, y_2$.  
 
-The brute-force algorithm can be optimized into $\mathcal{O}(n^4)$ by performing the following memoization technique and storing previously-calculated comparisons. 
+\item \emph{How}: 
 
-https://stackoverflow.com/questions/56701990/bitmap-pattern-recogination
+\begin{algorithm}
+\begin{algorithmic}
+\Function{RectangleSearch}{M[1..n, 1..n]}
+\State score $\leftarrow$ 0
+\State maxArea $\leftarrow$ 0
+\Comment{For each pair of points ($x_1, y_1$) and ($x_2, y_2$) in the bitmap, compare them. If the score of these points is greater than the current max, then replace MaxArea with score.}
+\For {$x_1$ = n to 0}
+\For {$x_2$ = n to 0}
+\For {$y_1$ = n to 0}
+\For {$y_2$ = n to 0}
+\State score $\leftarrow$ Compare($x_1, x_2, y_1, y_2)
 
+\If{score $>$ maxArea}
+\State maxArea $\leftarrow$ score
+\EndIf
+\EndFor
+\EndFor 
+\EndFor
+\EndFor
+\State \Return maxArea
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\begin{algorithmic}
+\Function{Compare}{$x_1, x_2, y_1, y_2$}
+\If{horizArr[$x_1, x_2, y_1, y_2$] $\neq$ NULL}
+\State horizontal $\leftarrow$ horizArr[$x_1, x_2, y_1, y_2$]
+\ElsIf{Match[$x_1, y_1$] == Match[$x_2, y_2$]}
+\State horizontal $\leftarrow$ 1 + horizArr[$x_1 - 1, x_2 - 1, y_1, y_2]$
+\Else
+\State horizontal $\leftarrow$ 0
+\EndIf
+
+\If{vertArr[$x_1, x_2, y_1, y_2$] $\neq$ NULL}
+\State vertical $\leftarrow$ vertArr[$x_1, x_2, y_1, y_2$]
+\ElsIf{Match[$x_1, y_1$] == Match[$x_2, y_2$]}
+\State vertical $\leftarrow$ 1 + vertArray[$x_1, x_2, y_1 - 1, y_2 -1]$
+\Else
+\State vertical $\leftarrow$ 0
+\EndIf
+
+\If{scoreArr $\neq$ NULL}
+\State score $\leftarrow$ scoreArr[$x_1, x_2, y_1, y_2$]
+\ElsIf{vertical == 1 + vertArr[$x_1 - 1, x_2 - 1$] AND horizontal == 1 + horizArr[$x_1 -1, x_2 -1]$ AND Match[$x_1, y_1$] == Match[$x_2, y_2$]}
+\State score $\leftarrow$ 1 + vertical + horizontal + Compare[$x_1 -1, x_2 -1, y_1 -1, y_2 -1$]
+\ElsIf{vertical == 1 + vertArr[$y_1 - 1, y_2 - 1$] AND Match[$x_1, y_1$] == Match[$x_2, y_2$]}
+\State score $\leftarrow$ 1 + vertical + Compare[$x_1 -1, x_2 -1, y_1 -1, y_2 -1$]
+\ElsIf{horizontal == 1 + horizArr[$x_1 -1, x_2 -1$] AND Match[$x_1, y_1$] == Match[$x_2, y_2$]}
+\State score $\leftarrow$ 1 + horizontal + Compare[$x_1 - 1, x_2 - 1, y_1 - 1, y_2 -1$]
+\ElsIf{Match[$x_1, y_1$] == Match[$x_2, y_2$]}
+\State score $\leftarrow$ 1
+\Else
+\State score $\leftarrow$ 0
+\EndIf
+\State horizArr[$x_1, x_2, y_1, y_2$] $\leftarrow$ horizontal
+\State vertArr[$x_1, x_2, y_1, y_2$] $\leftarrow$ vertical
+\State scoreArr[$x_1, x_2, y_1, y_2$] $\leftarrow$ score
+\State \Return score
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+            \item \emph{How Fast}: There are $n^2$ possible rectangles with any given point as their top-left corner and $n^2$ points in each rectangle that must be compared. Because there are two rectangles being compared at any point, the $\mathcal{O}(n^4)$ comparisons for each rectangle is doubled for an overall complexity of $\mathcal{O}(n^8).$ However, this is optimized into a final runtime of $\mathcal{O}(n^4)$ by memoization within the Compare function that eliminates repeated calculations and unnecessary calculations. With memoization, compare actually runs in constant time, which cuts down $\mathcal{O}(n^4)$.  
+
+            \item \emph{Why}: I really still don't understand loop invariants, but my guess is, for each of the outer for-loops in RectangleSearch, that maxArea holds the maximum score for any combination of checked $x_1, x_2, y_1$, and $y_2$ values. 
+        \end{itemize}
+
+Consulted \url{https://stackoverflow.com/questions/56701990/bitmap-pattern-recogination} for prose explanation and description of optimization technique.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\collab{\todo{}}
+\collab{None}
 \nextprob{Greedy Algorithm}
 
 What is the loop invariant of the for loop for the \textsc{GreedySchedule}
@@ -95,9 +165,21 @@ your loop invariant is correct.
 
 The GreedySchedule algorithm always adds in the candidate class with the earliest finish time.
 
-Loop Guard, G:
-Pre-condition, P: 
-Post-condition, Q: 
-Loop Invariant, $L_i$: The solution produced by GreedySchedule so far is a subset of the jobs scheduled in some optimal solution.
+Loop Guard, G: $i \leq n$
 
+Pre-condition, P: The input, $Y$, is a set of non-overlapping classes, sorted in increasing order by finishing time.
+
+Post-condition, Q: The output, $X$, is a set of non-overlapping classes. (Doesn't necessarily need to be the optimal set of classes, only non-overlapping and therefore a viable schedule). 
+
+Loop Invariant, $L_i$: The solution $X$ produced by GreedySchedule from $1$ to $i$  is a subset of some optimal solution, Opt, and is therefore non-overlapping.
+
+\begin{proof}
+Initialization, prove $\mathcal{P} \Rightarrow L_1$: At the initialization step, no classes have been added to the solution set $X$, so $X$ is trivially sorted and trivially non-overlapping. $L_1$ is implied from the precondition. 
+
+Maintenance, prove $\mathcal{G} \wedge L_i \Rightarrow L_{i+1}$: Assume we are within our loop guard ($i \leq n$) and $L_i$ is true for some $i$. Let Opt be some solution set that includes the $i$ jobs scheduled so far. Let $j$ be the next class the algorithm schedules; if $j$ is in Opt, then that is. However, if $j$ is not within Opt, then let $j'$ be the class in Opt with the earliest finish time not scheduled in the $i$ classes scheduled so far. $j'$ must be a candidate since it doesn't conflict with any other class; therefore, the finish time of $j'$ must be greater than or equal to the finish time of $j'$. Thus we can remove $j'$ from Opt and add $j$, since $j$ does not conflict. 
+
+End, prove $\neg G \wedge L \Rightarrow Q$: We assume now that $i > n$, which ends our loop. Our invariant is true throughout, and as such the solution produced in the final iteration is trivially a subset of itself. Therefore, the postcondition is true and the final solution is a set of non-overlapping classes. 
+\end{proof}
+
+Consulted \url{https://home.ttic.edu/~avrim/Algo19/lectures/greedy1.pdf} for a similar scheduling problem.
 \end{document}
