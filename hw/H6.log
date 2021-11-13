@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.12)  5 NOV 2021 13:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.12)  12 NOV 2021 15:18
 entering extended mode
-**./H-5G.tex
-(H-5G.tex
+**./H6.tex
+(H6.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27>
 (C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -21,12 +21,9 @@ File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 )
-(../fasy-hw.sty
-
-LaTeX Warning: You have requested package `../fasy-hw',
-               but the package provides `fasy-hw'.
-
+(fasy-hw.sty
 Package: fasy-hw 
+
 (C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/tools\enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks16
@@ -230,3 +227,144 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip61
 \thm@headsep=\skip62
 \dth@everypar=\toks32
+)
+\c@theorem=\count287
+)
+(C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count288
+\l__pdf_internal_box=\box54
+) (H6.aux)
+\openout1 = `H6.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+
+(C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count289
+\scratchdimen=\dimen158
+\scratchbox=\box55
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count292
+\MPscratchDim=\dimen159
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
+\everyMPtoPDFconversion=\toks34
+)
+(C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
+
+ (C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+
+
+(C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+[1
+
+{C:/Users/sarah/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 49--49
+ | [] 
+ []
+
+[2
+
+]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 71--71
+ | [] 
+ []
+
+[3
+
+]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 78--78
+ | [] 
+ []
+
+[4
+
+]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 138--138
+ | [] 
+ []
+
+[5
+
+]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 158--158
+ | [] 
+ []
+
+[6
+
+]
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 167--167
+ | [] 
+ []
+
+[7
+
+] (H6.aux) ) 
+Here is how much of TeX's memory you used:
+ 5106 strings out of 478927
+ 76918 string characters out of 2852534
+ 383248 words of memory out of 3000000
+ 22913 multiletter control sequences out of 15000+600000
+ 412133 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 84i,6n,93p,252b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\sarah\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\tcrm1000.pk><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/sarah/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarah/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarah/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarah/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users
+/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
+7.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/sarah/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/sarah/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on H6.pdf (7 pages, 180746 bytes).
+PDF statistics:
+ 101 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

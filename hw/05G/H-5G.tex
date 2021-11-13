@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage{../fasy-hw}
+\usepackage{algopseudocode}
+\usepackage{graphics}
 
 %% UPDATE these variables:
 \renewcommand{\hwnum}{5}
@@ -99,6 +101,15 @@ Walk through Kruskal's algorithm, using the graph in Figure 7.7 (left) of the
 textbook.  Label the center vertex $a$, the other red vertex $b$, and the
 remainder $c$ through $g$ in counter-clockwise order.  You should use the
 union-find data structure, with both ``heuristics.''
+
+\includegraphics[scale=.10]{graph.jpg}
+
+\begin{algorithmic}
+\Function{KruskalWalkthrough}{V, E}
+\State Sort E by increasing weight
+\State E = [2, 3, 4, 5, 8, 10, 12, 14, 16, 18, 26, 30]
+\EndFunction
+\end{algorithmic}
 
 \paragraph{Answer}
 \todo{}
