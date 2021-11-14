@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.12)  12 NOV 2021 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.12)  13 NOV 2021 16:07
 entering extended mode
 **./H6.tex
 (H6.tex
@@ -241,20 +241,20 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 ) (H6.aux)
 \openout1 = `H6.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 (C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -284,12 +284,12 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
 
  (C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
 
 
 (C:\Users\sarah\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -298,80 +298,89 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {C:/Users/sarah/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 49--49
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 50--50
  | [] 
  []
 
 [2
 
 ]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 71--71
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 74--74
  | [] 
  []
 
 [3
 
 ]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 78--78
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 94--94
  | [] 
  []
 
 [4
 
 ]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 138--138
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 154--154
  | [] 
+ []
+
+
+Overfull \hbox (165.06015pt too wide) in paragraph at lines 171--173
+ \OT1/cmr/bx/n/10 An-swer[] \OT1/cmr/m/n/10 [[\OT1/cmr/bx/n/10 XXX TODO: \OT1/c
+mr/m/n/10 an-swer here]][] $\OT1/cmtt/m/n/10 https : / / www . wired . com / st
+ory / computer-[]scientists-[]find-[]a-[]key-[]research-[]algorithms-[]limits/$
+ 
  []
 
 [5
 
 ]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 158--158
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 175--175
  | [] 
  []
 
 [6
 
 ]
-Overfull \hbox (18.06752pt too wide) in paragraph at lines 167--167
+Overfull \hbox (18.06752pt too wide) in paragraph at lines 184--184
  | [] 
  []
 
+<graph.png, id=35, 209.28188pt x 77.28876pt>
+File: graph.png Graphic file (type png)
+<use graph.png>
+Package pdftex.def Info: graph.png  used on input line 191.
+(pdftex.def)             Requested size: 209.28134pt x 77.28856pt.
 [7
 
-] (H6.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ <./graph.png>] (H6.aux) ) 
 Here is how much of TeX's memory you used:
- 5109 strings out of 478927
- 77018 string characters out of 2852534
- 383253 words of memory out of 3000000
- 22914 multiletter control sequences out of 15000+600000
+ 5117 strings out of 478927
+ 77116 string characters out of 2852534
+ 383254 words of memory out of 3000000
+ 22920 multiletter control sequences out of 15000+600000
  412133 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,93p,252b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\sarah\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmcsc10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarah/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarah/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/sarah/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/s
-arah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
-Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
-fb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy7.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/sarah/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on H6.pdf (7 pages, 180746 bytes).
+ 84i,6n,93p,1192b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\sarah\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/sarah/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/sarah/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/sarah/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarah/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/s
+arah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
+/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr17.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr7.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><C:/Users/sarah/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarah/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarah/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/sarah/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/sarah/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on H6.pdf (7 pages, 253448 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
